@@ -1,12 +1,11 @@
 package in.santhosh.config;
 
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
 //@Import({ DBconfiguration.class, ListenerConfig.class, SwaggerConfig.class })
-@PropertySource({ "classpath:application.properties"})
+@PropertySource({ "classpath:application.properties","classpath:log4j.properties","classpath:dbprops.properties"})
 public class ApplicationConfig {
 
 }

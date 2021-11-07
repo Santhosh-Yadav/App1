@@ -1,11 +1,37 @@
 package in.santhosh.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({ "From", "To", "TrainNo", "TrainName" })
+@JsonInclude(value = Include.NON_NULL)
 public class CustomerRequest {
 
+	@JsonProperty("TrainNo")
 	private String trainNo;
+
+	@JsonProperty("From")
 	private String from;
+
+	@JsonProperty("To")
 	private String to;
+
+	@JsonProperty("TrainName")
 	private String name;
+
+	@JsonProperty("RequestId")
+	private String requestId;
+
+	public String getRequestId() {
+		return requestId;
+	}
+
+	public void setRequestId(String requestId) {
+		this.requestId = requestId;
+	}
 
 	public String getTrainNo() {
 		return trainNo;
@@ -41,7 +67,8 @@ public class CustomerRequest {
 
 	@Override
 	public String toString() {
-		return "CustomerRequest [trainNo=" + trainNo + ", from=" + from + ", to=" + to + ", name=" + name + "]";
+		return "CustomerRequest [trainNo=" + trainNo + ", from=" + from + ", to=" + to + ", name=" + name
+				+ ", requestId=" + requestId + "]";
 	}
 
 }

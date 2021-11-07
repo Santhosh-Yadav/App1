@@ -1,13 +1,34 @@
 package in.santhosh.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonInclude(value = Include.NON_NULL)
 public class IRCTResponse {
 
+	@JsonProperty
+	private StatusInfo statusInfo;
+
+	@JsonProperty("TrainName")
 	private String trainName;
+
+	@JsonProperty("TrainNumber")
 	private String trainNo;
+
+	@JsonProperty("AvailableTickets")
 	private String availableTickets;
+
+	@JsonProperty("BoardingTime")
 	private String boardingTime;
+
+	@JsonProperty("DepartureTime")
 	private String departureTime;
+
+	@JsonProperty("StartingFrom")
 	private String startingFrom;
+
+	@JsonProperty("ToLocation")
 	private String toLocation;
 
 	public String getTrainName() {
@@ -66,11 +87,21 @@ public class IRCTResponse {
 		this.toLocation = toLocation;
 	}
 
+	public StatusInfo getStatusInfo() {
+		return statusInfo;
+	}
+
+	public void setStatusInfo(StatusInfo statusInfo) {
+		this.statusInfo = statusInfo;
+	}
+
 	@Override
 	public String toString() {
-		return "IRCTResponse [trainName=" + trainName + ", trainNo=" + trainNo + ", availableTickets="
-				+ availableTickets + ", boardingTime=" + boardingTime + ", departureTime=" + departureTime
-				+ ", startingFrom=" + startingFrom + ", toLocation=" + toLocation + "]";
+		return "IRCTResponse [statusInfo=" + statusInfo + ", trainName=" + trainName + ", trainNo=" + trainNo
+				+ ", availableTickets=" + availableTickets + ", boardingTime=" + boardingTime + ", departureTime="
+				+ departureTime + ", startingFrom=" + startingFrom + ", toLocation=" + toLocation + "]";
 	}
+
+	
 
 }
